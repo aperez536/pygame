@@ -8,3 +8,5 @@ El juego consta de 2 niveles. Uno inicial a definir [ 1), 2) o 3) ] y un segundo
 Puede ser que el primer nivel el alien busque las piezas de la nave para repararla y el segundo nivel, vuelve a su hogar esquivando meteoros o balas de otras naves.
 by:Micaela
 ***************
+pruebo si anda
+by:Nicolás
