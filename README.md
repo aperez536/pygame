@@ -14,4 +14,8 @@ by:Nicolás
 DOMINGO 20/08 ------ 9:06HS
 Empece la programacion del juego, solo incluyendo cosas basicas tales como el tamaño del display, algunos colores basicos y el cierre del juego.
 ºMICAELA
+-
+-22:08HS
+Agregado de una carpeta con contenido de imagenes que tendrá el juego(con una dentro .PNG que podria ser el personaje)
+ºMICAELA 
 ***********************************************************
