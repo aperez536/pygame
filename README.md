@@ -19,6 +19,11 @@ Empece la programacion del juego, solo incluyendo cosas basicas tales como el ta
 Agregado de una carpeta con contenido de imagenes que tendrá el juego(con una dentro .PNG que podria ser el personaje)
 ºMICAELA 
 ***********************************************************
-Jueves 24/08 ----- 17:44
+Jueves 24/08 ----- 17:44HS
 agregado en la carpeta de imagenes " un alien con sus respectivos movimientos(.png),tuerca y tornillo.
 by: Alan
+**********************************************************
+Jueves 31/08 ----- 20:36HS
+Editando el codigo del juego. Agregado una imagen temporal a modo de personaje, movimientos básicos del mismo, funciones,colisiones con los bordes y un mensaje de aviso cuando esto ocurre.
+ºMICAELA
+***********************************************************
