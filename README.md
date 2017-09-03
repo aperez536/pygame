@@ -27,3 +27,7 @@ Jueves 31/08 ----- 20:36HS
 Editando el codigo del juego. Agregado una imagen temporal a modo de personaje, movimientos básicos del mismo, funciones,colisiones con los bordes y un mensaje de aviso cuando esto ocurre.
 ºMICAELA
 ***********************************************************
+Domingo 3/09 ------- 10:39HS
+Agregue una extension al repository del bitbucket que es un administrador de tareas, cumple la funcion del KANBAN y se llama "Bucketboard". Ademas agregue una carpeta "Documentacion" y dentro otra mas, donde se encuentras los screenshots del Bucketboard, como se pide en el TP.
+ºMICAELA
+*********************************************************
