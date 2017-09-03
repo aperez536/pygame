@@ -1,6 +1,8 @@
 import pygame
 import time
 import random
+from logging import addLevelName
+from test.pickletester import DATA0_DIS
 
 pygame.init()
 
@@ -20,11 +22,11 @@ BlancoViejo = (205,192,176)
 imagen1= pygame.image.load('aliensinfondo.png')
 imagen1= pygame.transform.scale(imagen1, (50,50))
 #background =  pygame.image.load()
-#background= pygame.transform.scale(background,(500,800)) #Ajuste de la imagen al tamaño del display
+#background= pygame.transform.scale(background,(500,800)) #Ajuste de la imagen al tamao del display
 
 ##########AJUSTES VARIOS############
 
-gameDisplay= pygame.display.set_mode((display_ancho, display_altura)) #Tamaño del display
+gameDisplay= pygame.display.set_mode((display_ancho, display_altura)) #Tamao del display
 pygame.display.set_caption("Space full of aliens") #Nombre del juego
 clock=pygame.time.Clock()
 
@@ -59,11 +61,12 @@ def colision1(text):
     game_loop()
 
 def game_loop():
-    x=200
-    y=200
+    x=0
+    y=0
+    vel=10
     gameExit=False
-    x_var=0
-    y_var=0
+    x_var=200
+    y_var=200
 
     while not gameExit:
         for event in pygame.event.get():
@@ -76,28 +79,38 @@ def game_loop():
                ###MOVIMIENTOS###
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    x=x-30
+                    x=-vel
                 if event.key == pygame.K_RIGHT:
-                    x=x+30
-            if event.type == pygame.KEYUP:
+                    x=vel
                 if event.key == pygame.K_UP:
-                    y=y-30
+                    y=-vel
                 if event.key == pygame.K_DOWN:
-                    y= y+30
+                    y=vel
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT:
+                    x=0
+                if event.key == pygame.K_RIGHT:
+                    x=0
+                if event.key == pygame.K_UP:
+                    y=0
+                if event.key == pygame.K_DOWN:
+                    y=0
 
 
-        x+=x_var
-        y+=y_var
+        x_var+=x
+        y_var+=y
         gameDisplay.fill(negro)
-        alien(x,y)
+        alien(x_var,y_var)
 
         
                        ###Colisiones
-        if x > display_ancho-imagen_ancho or x < 0:
+        if x_var > display_ancho-imagen_ancho or x_var < 0:
             mensaje_borde()
-        if y > display_altura-imagen_alto or y < 0:
+        if y_var > display_altura-imagen_alto or y_var < 0:
             gameExit=True
-
+        if x_var > display_altura or x_var < 0:
+            gameExit=True
+        
 
 
         pygame.display.update()   ##actualiza display

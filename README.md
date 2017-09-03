@@ -31,3 +31,6 @@ Domingo 3/09 ------- 10:39HS
 Agregue una extension al repository del bitbucket que es un administrador de tareas, cumple la funcion del KANBAN y se llama "Bucketboard". Ademas agregue una carpeta "Documentacion" y dentro otra mas, donde se encuentras los screenshots del Bucketboard, como se pide en el TP.
 ºMICAELA
 *********************************************************
+Domingo 03/09 ----- 15:20HS
+Editando el codigo del juego. Mejorado el movimiento del personaje.
+By:Alan
