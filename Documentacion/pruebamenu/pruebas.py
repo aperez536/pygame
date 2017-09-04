@@ -227,8 +227,11 @@ def comenzar_nuevo_juego():
 
 
 def salir_del_programa():
-    import sys
-    sys.exit(0)
+   # import sys
+    #sys.exit(0)
+   for event in pygame.event.get():
+    pygame.quit()
+    quit()
 
 
 if __name__ == '__main__':

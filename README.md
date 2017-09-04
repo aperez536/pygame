@@ -34,3 +34,7 @@ Agregue una extension al repository del bitbucket que es un administrador de tar
 Domingo 03/09 ----- 15:20HS
 Editando el codigo del juego. Mejorado el movimiento del personaje.
 By:Alan
+************************************************
+DOMINGO 3/09 --------------- 19:51
+Arreglado de constantes. Inclui dentro de la carpeta documentacion, un archivo donde esta la prueba del menu del juego.
+***********************************************
