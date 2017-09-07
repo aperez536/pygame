@@ -38,3 +38,6 @@ By:Alan
 DOMINGO 3/09 --------------- 19:51
 Arreglado de constantes. Inclui dentro de la carpeta documentacion, un archivo donde esta la prueba del menu del juego.
 ***********************************************
+Jueves 7/09------------- 15:19
+editado el codigo del juego. agregado movimiento visual del personaje.
+by:alan
