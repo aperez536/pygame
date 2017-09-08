@@ -41,3 +41,6 @@ Arreglado de constantes. Inclui dentro de la carpeta documentacion, un archivo d
 Jueves 7/09------------- 15:19
 editado el codigo del juego. agregado movimiento visual del personaje.
 by:alan
+Viernes 08/09------------ 17:25
+editado el codigo del juego. agrege las piezas que tiene que buscar el alien, agarrar las piezas, y cuando llegue a la nave con esas piezas , se mostrara el mensaje que gano el juego. 
+by:alan
