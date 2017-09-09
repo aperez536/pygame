@@ -1,11 +1,18 @@
-# BREVE DESCRIPCION DEL JUEGO: 
+# BREVE DESCRIPCION DEL JUEGO:
+# En una primera instancia del juego, un alien
+# se pierde en el espacio y aterriza accidentalmente en XXXXXXXX y en esta
+# maniobra se le rompe la nave. Por lo que debera juntar las piezas para
+# armarla nuevamente y poder regresar a su hogar. En el segundo nivel
+# debera esquivar meteoros en el espacio para poder llegar a destino.
 #
-#MANUAL DE USUARIO: 
+#MANUAL DE USUARIO: El personaje principal solo se mueve con las flechas
+# ARRIBA, ABAJO, DERECHA e IZQUIERDA.
 #
 #
-#OBJETIVOS:
+#OBJETIVOS: 1 nivel: juntar todas las piezas
+#           2 nivel: esquivar cierta cantidad de meteoritos para llegar al hogar
 #
-# CREADORES
+# CREADORES: Alan Perez, Nicolas Ojeda, Micaela Peralta.
 #
 
 import pygame
