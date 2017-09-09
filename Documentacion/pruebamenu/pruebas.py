@@ -149,7 +149,7 @@ class Menu:
             elif k[K_DOWN]:
                 self.seleccionado += 1
             elif k[K_RETURN]:
-                #función opción.
+                #funcion opcion.
                 self.opciones[self.seleccionado].activar()
 
         #opciones permitidas del cursor
