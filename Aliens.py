@@ -6,7 +6,7 @@
 # debera esquivar meteoros en el espacio para poder llegar a destino.
 #
 # MANUAL DE USUARIO: El personaje principal solo se mueve con las flechas
-# ARRIBA, ABAJO, DERECHA e IZQUIERDA.
+# ARRIBA (W), ABAJO (S), DERECHA (A) e IZQUIERDA (D).
 #
 #
 # OBJETIVOS: 1 nivel: juntar todas las piezas
@@ -47,19 +47,19 @@ def mensaje1(text):
     pygame.display.update()
     time.sleep(1)
     game_loop() #No tiene que volver a empezar
-    
+
 def mensaje2(text): # es igual que mensaje 1?????
     largeText = pygame.font.Font('freesansbold.ttf', 20)
-    TextSurf, TextRect = texto (text, largeText)
+    TextSurf, TextRect = texto(text, largeText)
     TextRect.center = ((DISPLAY_ANCHO/2), (DISPLAY_ALTURA/2))
-    config.gameDisplay.blit (TextSurf, TextRect)
+    config.gameDisplay.blit(TextSurf, TextRect)
     pygame.display.update()
     time.sleep(1)
     game_loop()
-    
+
 def mensaje_gano():
     mensaje2('gano el juego')
-    
+
 def mensaje_borde():
     mensaje1('Choque con el borde!')
 
@@ -78,78 +78,78 @@ def colision1(text):
 def game_loop():
     x = 0
     y = 0
-    
+
     #Creamos el Alien
-    iAlien = Alien(config.gameDisplay, "JuanCarlosNoveno")
+    iAlien = Alien("JuanCarlosNoveno")
 
     #posicion de la tuerca
     x1 = 350
     y1 = 250
-    
+
     #---------------
     vel = 10
     gameExit = False
-    
+
     #pos del personaje principal
     x_var = 200
     y_var = 200
-    
+
     #------------
-    contador=0 # contador para el cambio visual de imagenes
-    agarratuerca=False
-    contartuerca=-1
-    
+    contador = 0 # contador para el cambio visual de imagenes
+    agarratuerca = False
+    contartuerca = -1
+
     #---pos del tornillo
-    x2=300
-    y2=300
-    
+    x2 = 300
+    y2 = 300
+
     #-------
-    agarratornillo=False
-    contartornillo=0
-    
+    agarratornillo = False
+    contartornillo = 0
+
     #posicion nave
-    x3=450
-    y3=450
-    
+    x3 = 450
+    y3 = 450
+
     # para ver si la tecla sigue apretada
     while not gameExit:
         for event in pygame.event.get():
-            
+
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
 
             ###MOVIMIENTOS###
             if event.type == pygame.KEYDOWN:
-                
-                if event.key == pygame.K_LEFT:
+
+                if event.key == pygame.K_LEFT or event.key == pygame.K_a:
                     contador += 1
                     x =- vel
-                    
-                if event.key == pygame.K_RIGHT:
+ 
+                if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                     contador += 1
                     x = vel
                     
-                if event.key == pygame.K_UP:
+                if event.key == pygame.K_UP or event.key == pygame.K_w:
                     contador += 1
                     y =- vel
 
-                if event.key == pygame.K_DOWN:
+                if event.key == pygame.K_DOWN or event.key == pygame.K_s:
                     contador += 1
                     y = vel
                     
             if event.type == pygame.KEYUP:
                 
-                if event.key == pygame.K_LEFT:  
+                if event.key == pygame.K_LEFT or event.key == pygame.K_a:  
                     x = 0
                     
-                if event.key == pygame.K_RIGHT:
+                if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                     x = 0
                     
-                if event.key == pygame.K_UP:
+                if event.key == pygame.K_UP or event.key == pygame.K_w:
                     y = 0
                     
-                if event.key == pygame.K_DOWN:
+                if event.key == pygame.K_DOWN or event.key == pygame.K_s:
                     y = 0
             
         if(contador > 4):

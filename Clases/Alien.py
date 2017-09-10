@@ -4,8 +4,8 @@ from Clases.Constantes import *
 
 class Alien():
 
-    def __init__(self, gameDisplay, name):
-        self.gameDisplay = gameDisplay
+    def __init__(self, name):
+        self.gameDisplay = pygame.display.set_mode((DISPLAY_ANCHO, DISPLAY_ALTURA))
         self.name = name
         self.hp = 100
         self.inventary = [] #Para saber que herramientas tiene (?
@@ -34,4 +34,5 @@ class Alien():
 
     # Funcion que elimina Herramientas (Cuando las Usa)
         self.inventary.remove(itemID)
+        #Ordenar el Inventario?
         return #ver si return es necesario
