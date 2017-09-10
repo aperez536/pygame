@@ -19,6 +19,7 @@ import time
 import random
 from Clases.Alien import Alien
 from Clases.Config import Config
+from Clases.Mensaje import Mensaje
 from Clases.Constantes import *
 
 pygame.init()
@@ -80,7 +81,11 @@ def game_loop():
     y = 0
 
     #Creamos el Alien
-    iAlien = Alien("JuanCarlosNoveno")
+    nuevoMensaje = Mensaje()
+    nuevoMensaje.Color = CELESTE
+    nuevoMensaje.Posicion = "top-left"
+
+    iAlien = Alien("Alien")
 
     #posicion de la tuerca
     x1 = 350
@@ -118,7 +123,7 @@ def game_loop():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-
+                   
             ###MOVIMIENTOS###
             if event.type == pygame.KEYDOWN:
 
@@ -157,7 +162,7 @@ def game_loop():
         
         x_var += x
         y_var += y
-        
+
         # si el perosonaje principal esta en esa pocision , va a agarrar la tuerca.
         if((x_var>=330 and x_var<=340)and (y_var >=220 and y_var<=250) ):
             agarratuerca=True
@@ -167,8 +172,12 @@ def game_loop():
         config.gameDisplay.blit(fondo, (0, 0))
         
         iAlien.move(x_var, y_var,contador)
+
+        nuevoMensaje.Print("Hola " + iAlien.name)
+
         nave(x3, y3)
         
+
         # si el perosonaje principal esta en esa pocision , va a agarrar la tuerca.
 
         #print (x_var,y_var,contartornillo,contartuerca)

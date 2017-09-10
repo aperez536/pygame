@@ -21,6 +21,7 @@ COL_RIGHT = DISPLAY_ANCHO - ALIEN_ANCHO
 NEGRO = (0, 0, 0)
 BLANCO = (255, 255, 255)
 BLANCOVIEJO = (205, 192, 176)
+CELESTE = (0, 99, 255)
 
 #######IMAGENES########
 fondo = pygame.image.load('Imagenes/fondo.png')
@@ -46,5 +47,6 @@ imagenes = [imagen1, imagen2, imagen3, imagen4, imagen5]
 
 ImagenActual = 0
 imagenes[ImagenActual]
+
 #background =  pygame.image.load()
 #background = pygame.transform.scale(background,(500,800)) #Ajuste de la imagen al tamao del display
