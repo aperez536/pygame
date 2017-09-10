@@ -5,15 +5,14 @@
 # armarla nuevamente y poder regresar a su hogar. En el segundo nivel
 # debera esquivar meteoros en el espacio para poder llegar a destino.
 #
-#MANUAL DE USUARIO: El personaje principal solo se mueve con las flechas
+# MANUAL DE USUARIO: El personaje principal solo se mueve con las flechas
 # ARRIBA, ABAJO, DERECHA e IZQUIERDA.
 #
 #
-#OBJETIVOS: 1 nivel: juntar todas las piezas
-#           2 nivel: esquivar cierta cantidad de meteoritos para llegar al hogar
+# OBJETIVOS: 1 nivel: juntar todas las piezas
+#            2 nivel: esquivar cierta cantidad de meteoritos para llegar al hogar
 #
 # CREADORES: Alan Perez, Nicolas Ojeda, Micaela Peralta.
-#
 
 import pygame
 import time
@@ -49,7 +48,7 @@ def mensaje1(text):
     time.sleep(1)
     game_loop() #No tiene que volver a empezar
     
-def mensaje2(text):
+def mensaje2(text): # es igual que mensaje 1?????
     largeText = pygame.font.Font('freesansbold.ttf', 20)
     TextSurf, TextRect = texto (text, largeText)
     TextRect.center = ((DISPLAY_ANCHO/2), (DISPLAY_ALTURA/2))
@@ -124,19 +123,19 @@ def game_loop():
             if event.type == pygame.KEYDOWN:
                 
                 if event.key == pygame.K_LEFT:
-                    contador+=1
+                    contador += 1
                     x =- vel
                     
                 if event.key == pygame.K_RIGHT:
-                    contador+=1
+                    contador += 1
                     x = vel
                     
                 if event.key == pygame.K_UP:
-                    contador+=1
+                    contador += 1
                     y =- vel
-                    
+
                 if event.key == pygame.K_DOWN:
-                    contador+=1
+                    contador += 1
                     y = vel
                     
             if event.type == pygame.KEYUP:
