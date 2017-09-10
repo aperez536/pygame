@@ -84,8 +84,12 @@ def game_loop():
     nuevoMensaje = Mensaje()
     nuevoMensaje.Color = CELESTE
     nuevoMensaje.Posicion = "top-left"
+    nuevoMensaje2 = Mensaje()
+    nuevoMensaje2.Posicion = "bottom-left"
+    nuevoMensaje2.Color = AMARILLO
 
     iAlien = Alien("Alien")
+    Puntaje = 0
 
     #posicion de la tuerca
     x1 = 350
@@ -166,14 +170,19 @@ def game_loop():
         # si el perosonaje principal esta en esa pocision , va a agarrar la tuerca.
         if((x_var>=330 and x_var<=340)and (y_var >=220 and y_var<=250) ):
             agarratuerca=True
+            Puntaje = Puntaje + 1
             contartuerca=1
             
         config.gameDisplay.fill(NEGRO)
         config.gameDisplay.blit(fondo, (0, 0))
         
-        iAlien.move(x_var, y_var,contador)
+        nuevoMensaje2.Print("Nombre: " + iAlien.name)
 
-        nuevoMensaje.Print("Hola " + iAlien.name)
+        iAlien.move(x_var, y_var,contador)
+        if Puntaje > 2000:
+            nuevoMensaje.Borrar()
+        else:
+            nuevoMensaje.Print("Puntaje: " + str(Puntaje))
 
         nave(x3, y3)
         
