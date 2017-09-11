@@ -25,7 +25,7 @@ from Clases.Constantes import *
 pygame.init()
 
 config = Config()
-config.gameDisplay = pygame.display.set_mode((DISPLAY_ANCHO, DISPLAY_ALTURA)) #Tamano del display
+config.gameDisplay = pygame.display.set_mode((DISPLAY_ANCHO, DISPLAY_ALTURA), pygame.DOUBLEBUF)
 
 def tuerca(x, y):
     config.gameDisplay.blit(imagen6, (x, y))
@@ -80,17 +80,18 @@ def game_loop():
     x = 0
     y = 0
 
-    #Creamos el Alien
+    #Prueba de Mensajes Nuevos (Falta hacerles un timer para que desaparescan con el tiempo??)
     nuevoMensaje = Mensaje()
     nuevoMensaje.Color = CELESTE
     nuevoMensaje.Posicion = "top-left"
     nuevoMensaje2 = Mensaje()
     nuevoMensaje2.Posicion = "bottom-left"
-    nuevoMensaje2.Color = AMARILLO
+    nuevoMensaje2.Color = GRIS
 
+    #Creamos el Alien
     iAlien = Alien("Alien")
-    Puntaje = 0
-
+    Puntaje = 0 #Se podria poner dentro de la clase Alien.Puntaje (Multijugador?!)
+ 
     #posicion de la tuerca
     x1 = 350
     y1 = 250

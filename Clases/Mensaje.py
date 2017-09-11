@@ -58,11 +58,8 @@ class Mensaje():
 
         #Ponerlo en el Display
         self.GameDisplay.blit(msgSurface, msgSurfaceRect)
-        #Actualizar la Pantalla
-        pygame.display.update()
 
     def Borrar(self):
         msgSurface = self.fontConfig.render("", True, self.Color)
         msgSurfaceRect = msgSurface.get_rect()
         self.GameDisplay.blit(msgSurface, msgSurfaceRect)
-        pygame.display.update()

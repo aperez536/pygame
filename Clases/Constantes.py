@@ -23,6 +23,7 @@ BLANCO = (255, 255, 255)
 BLANCOVIEJO = (205, 192, 176)
 CELESTE = (0, 99, 255)
 AMARILLO = (255, 255, 0)
+GRIS = (60, 60, 60)
 
 #######IMAGENES########
 fondo = pygame.image.load('Imagenes/fondo.png')
