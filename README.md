@@ -89,3 +89,12 @@ Nueva función que actualiza los FPS desde Config
 Y un par de arreglos varios que no me acuerdo pero eran espacios y cosas mal puestas
 ºMICAELA
 ************************************
+DOMINGO 10/9 -------------22:07HS
+Resumen del Dia:
+Agregada una clase de Mensajes.py que se encarga de mostrar mensajes en la pantalla para posibles puntuaciones, vida o nombre del alien (Interfaz de la pantalla)
+Eliminado archivos de Debug
+Agregado un archivo gitIgnore para los archivos de debug
+Arreglos varios de sintaxis
+Arreglo de bug - las imagenes titilaban flikering por repeticion del display.update()
+ºMICAELA
+************************************
