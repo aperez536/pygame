@@ -23,8 +23,8 @@ class Mensaje():
     def __init__(self):
         #Default
         self.Color = BLANCO #(255,255,255) sera string?
-        self.Fuente = "Font\\wowsers.ttf"
-        self.Tamano = 20
+        self.Fuente = "Font\\font2.otf"
+        self.Tamano = 50
         self.Posicion = "center"
         self.Padding = 10
         self.GameDisplay = pygame.display.set_mode((DISPLAY_ANCHO, DISPLAY_ALTURA))

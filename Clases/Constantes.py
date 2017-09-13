@@ -50,5 +50,4 @@ imagenes = [imagen1, imagen2, imagen3, imagen4, imagen5]
 ImagenActual = 0
 imagenes[ImagenActual]
 
-#background =  pygame.image.load()
 #background = pygame.transform.scale(background,(500,800)) #Ajuste de la imagen al tamao del display

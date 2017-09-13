@@ -49,7 +49,7 @@ def mensaje1(text):
     time.sleep(1)
     game_loop() #No tiene que volver a empezar
 
-def mensaje2(text): # es igual que mensaje 1?????
+def mensaje2(text):
     largeText = pygame.font.Font('freesansbold.ttf', 20)
     TextSurf, TextRect = texto(text, largeText)
     TextRect.center = ((DISPLAY_ANCHO/2), (DISPLAY_ALTURA/2))
@@ -177,13 +177,13 @@ def game_loop():
         config.gameDisplay.fill(NEGRO)
         config.gameDisplay.blit(fondo, (0, 0))
         
-        nuevoMensaje2.Print("Nombre: " + iAlien.name)
+        nuevoMensaje2.Print("Nombre:" + iAlien.name)
 
         iAlien.move(x_var, y_var,contador)
         if Puntaje > 2000:
             nuevoMensaje.Borrar()
         else:
-            nuevoMensaje.Print("Puntaje: " + str(Puntaje))
+            nuevoMensaje.Print("Puntaje:" + str(Puntaje))
 
         nave(x3, y3)
         

@@ -98,3 +98,5 @@ Arreglos varios de sintaxis
 Arreglo de bug - las imagenes titilaban flikering por repeticion del display.update()
 ºMICAELA
 ************************************
+MARTES 12/09 ------------- 20:36HS
+Cambios y actualizaciones simples, fonts, arreglado de espacios y volviendo a mejorar el menú. Agregado el Menu a la carpeta de "Clases".
