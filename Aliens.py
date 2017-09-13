@@ -77,6 +77,7 @@ def colision1(text):
     game_loop()
 
 def game_loop():
+    
     x = 0
     y = 0
 
