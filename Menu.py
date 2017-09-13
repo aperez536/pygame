@@ -4,14 +4,17 @@ import time
 import random
 import sys
 
+
 from logging import addLevelName
 from test.pickletester import DATA0_DIS
 from pygame.locals import *
+from Clases.Mensaje import *
 
 from Aliens import *
 
 pygame.init()
 
+NEGRO = (0,0,0)
 pygame.mixer.music.load("Sonidos\\bg.ogg")
 reloj= pygame.time.Clock()
 pygame.mixer.music.play(-1, 0.0)
@@ -29,8 +32,8 @@ class Opcion:
         self.x = float(self.rect.x)
 
     def actualizar(self):
-        destino_x = 150
-        self.x += (destino_x - self.x) / 10.0
+        destino_x = 100 # ubicacion palabras
+        self.x += (destino_x - self.x) / 8.0 #rapidez de movimiento
         self.rect.x = int(self.x)
 
     def imprimir(self, screen):
@@ -58,7 +61,7 @@ class Cursor:
         self.seleccionar(0)
 
     def actualizar(self):
-        self.y += (self.to_y - self.y) / 10.0
+        self.y += (self.to_y - self.y) / 8.0 #rapidez movimiento cursor
         self.rect.y = int(self.y)
 
     def seleccionar(self, indice):
@@ -73,15 +76,15 @@ class Menu:
     def __init__(self, opciones):
         self.opciones = []
         fuente = pygame.font.Font('Font\\Oxin.ttf', 50)
-        x = 105
-        y = 105
+        x = 150 #Ubicacion palabras
+        y = 150 #same
         paridad = 1
 
-        self.cursor = Cursor(x - 80, y, 80) #CURSOR MOVIMIENTO
+        self.cursor = Cursor(x - 95, y, 95) #CURSOR MOVIMIENTO
 
         for titulo, funcion in opciones:
             self.opciones.append(Opcion(fuente, titulo, x, y, paridad, funcion))
-            y += 80 #DISTANCIA ENTRE PALABRAS
+            y += 70 #DISTANCIA ENTRE PALABRAS
             if paridad == 1:
                 paridad = -1
             else:
@@ -101,7 +104,7 @@ class Menu:
             elif k[K_DOWN]:
                 self.seleccionado += 1
             elif k[K_RETURN]:
-                #funci�n opci�n.
+                #funcion opcion 
                 self.opciones[self.seleccionado].activar()
 
         #opciones permitidas del cursor
@@ -141,16 +144,25 @@ def comenzar_nuevo_juego():
     game_loop() # Funciona pero no es como se debe  
 
 def salir_del_programa():
-    import sys
-    sys.exit(0)
+    pygame.quit()
+    quit()
+
+def los_creditos():
+    screen = pygame.display.set_mode((500,500))
+    screen.fill(NEGRO)
+    pygame.display.update
+    creditos= Mensaje()
+    creditos.Print("creadores")
+
 
 
 if __name__ == '__main__':
     
     salir = False
     opciones = [
-        ("jugar", comenzar_nuevo_juego),
-        ("salir", salir_del_programa)
+        ("juego nuevo", comenzar_nuevo_juego),
+        ("salir", salir_del_programa),
+        ("creditos", los_creditos)
         ]
 
     pygame.font.init()

@@ -100,3 +100,9 @@ Arreglo de bug - las imagenes titilaban flikering por repeticion del display.upd
 ************************************
 MARTES 12/09 ------------- 20:36HS
 Cambios y actualizaciones simples, fonts, arreglado de espacios y volviendo a mejorar el menú. Agregado el Menu a la carpeta de "Clases".
+ºMICAELA
+**************************************
+MIERCOLES 13/09---------- 19:40HS
+El menu esta casi terminado.Inlcuidas musica, inicio del juego y salida. Queda solucionar pequeños bugs y agregar una ultima opcion de instrucciones.
+ºMICAELA
+***************************************************
