@@ -55,7 +55,7 @@ def mensaje2(text):
     TextRect.center = ((DISPLAY_ANCHO/2), (DISPLAY_ALTURA/2))
     config.gameDisplay.blit(TextSurf, TextRect)
     pygame.display.update()
-    time.sleep(1)
+    time.sleep(3)
     game_loop()
 
 def mensaje_gano():
@@ -75,6 +75,11 @@ def colision1(text):
     pygame.display.update()
     time.sleep(1)
     game_loop()
+def agarraobjeto(aagarro,totalitenagarrado):
+    Puntaje = 0 #Se podria poner dentro de la clase Alien.Puntaje (Multijugador?!)
+    if  aagarro==True:
+        totalitenagarrado+=1
+    return totalitenagarrado
 
 def game_loop():
     
@@ -108,7 +113,7 @@ def game_loop():
     #------------
     contador = 0 # contador para el cambio visual de imagenes
     agarratuerca = False
-    contartuerca = -1
+    contartuerca = 2
 
     #---pos del tornillo
     x2 = 300
@@ -121,7 +126,9 @@ def game_loop():
     #posicion nave
     x3 = 450
     y3 = 450
-
+    #sonidos de personaje de movimiento y agarre
+    sonidomover=pygame.mixer.Sound("Sonidos/mover.mp3")
+    pygame.mixer.music.load("Sonidos/win.mp3")
     # para ver si la tecla sigue apretada
     while not gameExit:
         for event in pygame.event.get():
@@ -136,19 +143,20 @@ def game_loop():
                 if event.key == pygame.K_LEFT or event.key == pygame.K_a:
                     contador += 1
                     x =- vel
+                    sonidomover.play()
  
                 if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                     contador += 1
                     x = vel
-                    
+                    sonidomover.play()
                 if event.key == pygame.K_UP or event.key == pygame.K_w:
                     contador += 1
                     y =- vel
-
+                    sonidomover.play()
                 if event.key == pygame.K_DOWN or event.key == pygame.K_s:
                     contador += 1
                     y = vel
-                    
+                    sonidomover.play()
             if event.type == pygame.KEYUP:
                 
                 if event.key == pygame.K_LEFT or event.key == pygame.K_a:  
@@ -162,8 +170,9 @@ def game_loop():
                     
                 if event.key == pygame.K_DOWN or event.key == pygame.K_s:
                     y = 0
-            
+        
         if(contador > 4):
+            
             contador = 0
         
         x_var += x
@@ -172,9 +181,9 @@ def game_loop():
         # si el perosonaje principal esta en esa pocision , va a agarrar la tuerca.
         if((x_var>=330 and x_var<=340)and (y_var >=220 and y_var<=250) ):
             agarratuerca=True
-            Puntaje = Puntaje + 1
-            contartuerca=1
-            
+            if (contartuerca==2 and agarratuerca== True):
+                Puntaje=agarraobjeto(agarratuerca,Puntaje)
+                contartuerca=1
         config.gameDisplay.fill(NEGRO)
         config.gameDisplay.blit(fondo, (0, 0))
         
@@ -182,7 +191,7 @@ def game_loop():
 
         iAlien.move(x_var, y_var,contador)
         if Puntaje > 2000:
-            nuevoMensaje.Borrar()
+           nuevoMensaje.Borrar()
         else:
             nuevoMensaje.Print("Puntaje:" + str(Puntaje))
 
@@ -194,7 +203,10 @@ def game_loop():
         #print (x_var,y_var,contartornillo,contartuerca)
         if((x_var>=280 and x_var<=290)and (y_var >267 and y_var<=290) ):
             agarratornillo=True
-            contartornillo=1
+            if agarratornillo==True and contartornillo==0:
+                Puntaje=agarraobjeto(agarratornillo,Puntaje)
+                contartornillo=1
+                
         #----------------------------------------
         
         
@@ -215,8 +227,11 @@ def game_loop():
 
             
         if contartornillo == contartuerca:
+            
             if ((x_var>=410 and x_var<=450) and (y_var>=400 and y_var<=450)):
+                pygame.mixer.music.play(-1,0.0)
                 mensaje_gano()
+                
         
         config.updateFPS() #Actualiza el Display
 

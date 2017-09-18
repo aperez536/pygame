@@ -132,6 +132,7 @@ class Menu:
             opcion.imprimir(screen)
 
 def comenzar_nuevo_juego():
+    pygame.mixer.music.stop()
     pygame.display.update()
     screen = pygame.display.set_mode((500, 500))
     pygame.display.update()

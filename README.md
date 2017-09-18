@@ -106,3 +106,6 @@ MIERCOLES 13/09---------- 19:40HS
 El menu esta casi terminado.Inlcuidas musica, inicio del juego y salida. Queda solucionar pequeños bugs y agregar una ultima opcion de instrucciones.
 ºMICAELA
 ***************************************************
+DOMINGO 17/09-------------- 21:38hs
+agregue en la carpeta sonidos, nuevos sonidos que podrian ser los sonidos principales del juego.Arregle bugs.Uso de sonidos en el juego
+**************************************************
