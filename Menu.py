@@ -1,4 +1,4 @@
-# -*- coding: cp1252 -*-
+import os  #ver si en todas las pc esta
 import pygame
 import time
 import random
@@ -9,7 +9,7 @@ from logging import addLevelName
 from test.pickletester import DATA0_DIS
 from pygame.locals import *
 from Clases.Mensaje import *
-
+from Clases.Constantes import *
 from Aliens import *
 
 pygame.init()
@@ -149,11 +149,27 @@ def salir_del_programa():
     quit()
 
 def los_creditos():
-    screen = pygame.display.set_mode((500,500))
-    screen.fill(NEGRO)
-    pygame.display.update
-    creditos= Mensaje()
-    creditos.Print("creadores")
+    gameExit = False
+    while not gameExit:
+        for event in pygame.event.get():            
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            #pygame.KEYDOWN (Cuando se Aprienta) (Principio) Depende que se necesite
+            #pygame.KEYUP (Cuando se suelta la tecla) (Final) En este caso KEYUP cuando soltas que mande al menu
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_ESCAPE:
+                    #No se como llamar a que reinicie el programa
+                    os.execv(sys.executable, ['python'] + sys.argv)
+                    # ^ Funciona pero no es como se debe (Reinicia el programa en vez de ir al menu anterior)
+                    
+        #screen = pygame.display.set_mode((500,500))
+        #screen.fill(NEGRO) --- BORRAR ! SIEMPRE PONE LA PANTALLA NEGRA SINO
+        pygame.display.update()
+        creditos = Mensaje()
+        creditos.Color = BLANCO
+        creditos.Posicion = "middle"
+        creditos.Print("creadores\nHola") # hay que ver como poner los nombres "No se como se pone \n"
 
 
 
