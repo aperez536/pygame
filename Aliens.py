@@ -203,7 +203,7 @@ def game_loop():
         #lluvia 
         if tron1y==500:
             tron1y=0
-            tron1x=random.randrange(0,400)
+            tron1x=random.randrange(0,400)#devuelve una posicion aleatoria en el rango asignado
         if tron2y==550:
             tron2y=0
             tron2x=random.randrange(0,400)
@@ -229,7 +229,7 @@ def game_loop():
             nuevoMensaje.Print("Puntaje:" + str(Puntaje))
 
         nave(x3, y3)
-        tronco1(tronco,tron1x, tron1x)
+        tronco1(tronco,tron1x, tron1y)
         tronco1(tronco,tron2x, tron2y)
         tronco1(tronco,tron3x, tron3y)
             
