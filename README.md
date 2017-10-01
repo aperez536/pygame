@@ -108,4 +108,9 @@ El menu esta casi terminado.Inlcuidas musica, inicio del juego y salida. Queda s
 ***************************************************
 DOMINGO 17/09-------------- 21:38hs
 agregue en la carpeta sonidos, nuevos sonidos que podrian ser los sonidos principales del juego.Arregle bugs.Uso de sonidos en el juego
+by: ALan
+**************************************************
+DOMINGO 1/10-------------- 18:22hs
+Editando el codigo del juego. Arregle la lluvia de troncos.
+by: ALan
 **************************************************

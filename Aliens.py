@@ -24,6 +24,8 @@ from Clases.Constantes import *
 
 pygame.init()
 
+
+
 config = Config()
 config.gameDisplay = pygame.display.set_mode((DISPLAY_ANCHO, DISPLAY_ALTURA), pygame.DOUBLEBUF)
 
@@ -81,6 +83,10 @@ def agarraobjeto(aagarro,totalitenagarrado):
         totalitenagarrado+=1
     return totalitenagarrado
 
+def tronco1(trnc,x,y):
+     config.gameDisplay.blit(trnc, (x,y))
+
+
 def game_loop():
     
     x = 0
@@ -129,9 +135,19 @@ def game_loop():
     #sonidos de personaje de movimiento y agarre
     sonidomover=pygame.mixer.Sound("Sonidos/mover.mp3")
     pygame.mixer.music.load("Sonidos/win.mp3")
-    # para ver si la tecla sigue apretada
+    
+    #
+    tron1x= random.randrange(0,400)
+    tron1y=0
+    tron2x=random.randrange(0,400)
+    tron2y=0
+    tron3x=random.randrange(0,400)
+    tron3y=0
+    
     while not gameExit:
+             #pygame.display.update()
         for event in pygame.event.get():
+            
 
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -170,14 +186,31 @@ def game_loop():
                     
                 if event.key == pygame.K_DOWN or event.key == pygame.K_s:
                     y = 0
-        
+
         if(contador > 4):
             
             contador = 0
-        
+            
+        #tronco
+        tron1y+=10
+        tron2y+=10
+        tron3y+=10
+ 
         x_var += x
         y_var += y
-
+        
+               
+        #lluvia 
+        if tron1y==500:
+            tron1y=0
+            tron1x=random.randrange(0,400)
+        if tron2y==550:
+            tron2y=0
+            tron2x=random.randrange(0,400)
+        if tron3y==600:
+            tron3y=0
+            tron3x=random.randrange(0,400)   
+        ##
         # si el perosonaje principal esta en esa pocision , va a agarrar la tuerca.
         if((x_var>=330 and x_var<=340)and (y_var >=220 and y_var<=250) ):
             agarratuerca=True
@@ -196,7 +229,15 @@ def game_loop():
             nuevoMensaje.Print("Puntaje:" + str(Puntaje))
 
         nave(x3, y3)
-        
+        tronco1(tronco,tron1x, tron1x)
+        tronco1(tronco,tron2x, tron2y)
+        tronco1(tronco,tron3x, tron3y)
+            
+     
+
+
+
+
 
         # si el perosonaje principal esta en esa pocision , va a agarrar la tuerca.
 
@@ -208,7 +249,9 @@ def game_loop():
                 contartornillo=1
                 
         #----------------------------------------
-        
+                    
+
+    
         
         #------------------------
         if agarratuerca==False:

@@ -46,8 +46,13 @@ imagen7 = pygame.transform.scale(imagen7, (25, 25))
 imagen8 = pygame.image.load("Imagenes/nave.png")
 imagen8 = pygame.transform.scale(imagen8, (35, 35))
 imagenes = [imagen1, imagen2, imagen3, imagen4, imagen5]
+########################imagen trono y variables de posicion
+tronco = pygame.image.load("Imagenes/tronco2.png")
+
 
 ImagenActual = 0
 imagenes[ImagenActual]
+
+
 
 #background = pygame.transform.scale(background,(500,800)) #Ajuste de la imagen al tamao del display
