@@ -114,3 +114,5 @@ DOMINGO 1/10-------------- 18:22hs
 Editando el codigo del juego. Arregle la lluvia de troncos.
 by: ALan
 **************************************************
+MIERCOLES 18/10 ------------- 17:08hs
+agregue en la carpeta el codigo de nivel2 del juego, su contenido tiene la colision de la nave con el meteorito.

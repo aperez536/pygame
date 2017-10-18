@@ -46,6 +46,8 @@ imagen7 = pygame.transform.scale(imagen7, (25, 25))
 imagen8 = pygame.image.load("Imagenes/nave.png")
 imagen8 = pygame.transform.scale(imagen8, (35, 35))
 imagenes = [imagen1, imagen2, imagen3, imagen4, imagen5]
+meteoro = pygame.image.load("Imagenes/meteoro.png")
+meteoro = pygame.transform.scale(meteoro, (60, 60))
 ########################imagen trono y variables de posicion
 tronco = pygame.image.load("Imagenes/tronco2.png")
 
