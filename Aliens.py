@@ -136,7 +136,7 @@ def game_loop():
     sonidomover=pygame.mixer.Sound("Sonidos/mover.mp3")
     pygame.mixer.music.load("Sonidos/win.mp3")
     
-    #
+    #posiciones del tronco
     tron1x= random.randrange(0,400)
     tron1y=0
     tron2x=random.randrange(0,400)
@@ -210,6 +210,30 @@ def game_loop():
         if tron3y==600:
             tron3y=0
             tron3x=random.randrange(0,400)   
+
+        #colision
+        auxposx=x_var-90
+        auxposy=y_var
+        i=1
+        col=False
+                
+        for i in range (1,130):
+                auxposx=auxposx+1
+                if  tron1x==auxposx and tron1y==auxposy:
+                    col=True
+
+                if  tron2x==auxposx and tron2y==auxposy:
+                    col=True
+
+                if  tron3x==auxposx and tron3y==auxposy:
+                    col=True
+        if col==True:
+                    mensaje_colision()
+                    game_loop()
+
+
+
+
         ##
         # si el perosonaje principal esta en esa pocision , va a agarrar la tuerca.
         if((x_var>=330 and x_var<=340)and (y_var >=220 and y_var<=250) ):
