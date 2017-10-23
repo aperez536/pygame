@@ -21,6 +21,7 @@ from Clases.Alien import Alien
 from Clases.Config import Config
 from Clases.Mensaje import Mensaje
 from Clases.Constantes import *
+from nivel2 import *
 
 pygame.init()
 
@@ -57,7 +58,7 @@ def mensaje2(text):
     TextRect.center = ((DISPLAY_ANCHO/2), (DISPLAY_ALTURA/2))
     config.gameDisplay.blit(TextSurf, TextRect)
     pygame.display.update()
-    time.sleep(3)
+    time.sleep(2)
     game_loop()
 
 def mensaje_gano():
@@ -114,7 +115,7 @@ def game_loop():
 
     #pos del personaje principal
     x_var = 200
-    y_var = 200
+    y_var = 350
 
     #------------
     contador = 0 # contador para el cambio visual de imagenes
@@ -296,9 +297,10 @@ def game_loop():
         if contartornillo == contartuerca:
             
             if ((x_var>=410 and x_var<=450) and (y_var>=400 and y_var<=450)):
+                sonidomover.stop()
                 pygame.mixer.music.play(-1,0.0)
-                mensaje_gano()
-                
+                gameExit=True
+                game_loop2()               
         
         config.updateFPS() #Actualiza el Display
 

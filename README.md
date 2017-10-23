@@ -118,3 +118,7 @@ MIERCOLES 18/10 ------------- 17:08hs
 agregue en la carpeta el codigo de nivel2 del juego, su contenido tiene la colision de la nave con el meteorito.
 by: Alan
 **************************************************
+Domingo 22/1-------------- 22:11hs
+arregle la caida de meteoritos.agregue vida de la nave y ademas agregue imagenes de tareas asignadas y resolvidas.
+by: Alan 
+************************************

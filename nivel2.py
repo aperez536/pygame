@@ -1,18 +1,32 @@
 import pygame
 import time
 import random
-from Clases.Alien import Alien
 from Clases.Config import Config
 from Clases.Mensaje import Mensaje
 from Clases.Constantes import *
+from Aliens import *
+
+
 
 pygame.init()
 
 
+def comenzar_juego1():
+    pygame.mixer.music.stop()
+    pygame.display.update()
+    screen = pygame.display.set_mode((500, 500))
+    pygame.display.update()
+    x=0
+    y=0
+    vel=10
+    gameExit=False
+    x_var=200
+    y_var=200
+    game_loop() # Funciona pero no es como se debe  
+
 
 config = Config()
 config.gameDisplay = pygame.display.set_mode((DISPLAY_ANCHO, DISPLAY_ALTURA), pygame.DOUBLEBUF)
-
 
 def nave(x, y):
     config.gameDisplay.blit(imagen8, (x, y))
@@ -27,20 +41,14 @@ def mensaje1(text):
     TextRect.center = ((DISPLAY_ANCHO/2), (DISPLAY_ALTURA/2))
     config.gameDisplay.blit(TextSurf, TextRect)
     pygame.display.update()
-    time.sleep(1)
-    game_loop() #No tiene que volver a empezar
-
-def mensaje2(text):
-    largeText = pygame.font.Font('freesansbold.ttf', 20)
-    TextSurf, TextRect = texto(text, largeText)
-    TextRect.center = ((DISPLAY_ANCHO/2), (DISPLAY_ALTURA/2))
-    config.gameDisplay.blit(TextSurf, TextRect)
-    pygame.display.update()
-    time.sleep(3)
-    game_loop()
+    time.sleep(2)
+    
 
 def mensaje_borde():
     mensaje1('Choque con el borde!')
+
+def termina():
+    mensaje1('el juego se acabo')
 
 def mensaje_colision():
     colision1('Choque!')
@@ -52,13 +60,12 @@ def colision1(text):
     config.gameDisplay.blit(TextSurf, TextRect)
     pygame.display.update()
     time.sleep(1)
-    game_loop()
 
 def meteorito(trnc,x,y):
      config.gameDisplay.blit(trnc, (x,y))
 
 
-def game_loop():
+def game_loop2():
     
     x = 0
     y = 0
@@ -74,31 +81,40 @@ def game_loop():
     x1 = 350
     y1 = 250
 
-    #---------------
-    vel = 10
+    #--------------
+    
+    choque1=False;
+    choque2=False;
+    choque3=False;
+    choque4=False;
+    choque5=False;
+    choque6=False;
+    
+    vel = 10 # lo uso para el dezplazamiento de la nave
     gameExit = False
 
     #pos de la nave
     x_var = 200
     y_var = 400
-
+    #vida que tendra la nave
+    vida=3
     #sonidos de personaje de movimiento y agarre
     sonidomover=pygame.mixer.Sound("Sonidos/mover.mp3")
     pygame.mixer.music.load("Sonidos/win.mp3")
     
     #posiciones del meteoro
     meteoro1x= random.randrange(0,400)
-    meteoro1y=0
+    meteoro1y=-150
     meteoro2x=random.randrange(0,400)
-    meteoro2y=0
+    meteoro2y=-10
     meteoro3x=random.randrange(0,400)
-    meteoro3y=0
-    meteoro4x=random.randrange(0,500)
+    meteoro3y=-100
+    meteoro4x=random.randrange(0,400)
     meteoro4y=0
-    meteoro5x=random.randrange(0,500)
-    meteoro5y=0
-    meteoro6x=random.randrange(0,500)
-    meteoro6y=0
+    meteoro5x=random.randrange(0,100)
+    meteoro5y=-50
+    meteoro6x=random.randrange(0,400)
+    meteoro6y=-30
     
     while not gameExit:
              #pygame.display.update()
@@ -140,64 +156,89 @@ def game_loop():
     
                
         #lluvia  de meteoros
-        if meteoro1y==500:
-            meteoro1y=0
-            meteoro1x=random.randrange(0,400)#devuelve una posicion aleatoria en el rango asignado
-        if meteoro2y==550:
-            meteoro2y=0
-            meteoro2x=random.randrange(0,400)
-        if meteoro3y==600:
-            meteoro3y=0
-            meteoro3x=random.randrange(0,400)   
+        if choque1==False:
+            if meteoro1y==500:
+                meteoro1y=0
+                meteoro1x=random.randrange(0,400)#devuelve una posicion aleatoria en el rango asignado
+        if choque2==False:
+            if meteoro2y==500:
+                meteoro2y=0
+                meteoro2x=random.randrange(0,400)
+        if choque3==False:
+            if meteoro3y==500:
+                meteoro3y=0
+                meteoro3x=random.randrange(0,400)   
             
-        if meteoro4y==600:
-            meteoro4y=0
-            meteoro4x=random.randrange(0,400)   
+        if choque4==False:
+            if meteoro4y==600:
+                meteoro4y=0
+                meteoro4x=random.randrange(0,400)   
         
-        if meteoro5y==600:
-            meteoro5y=0
-            meteoro5x=random.randrange(0,400)   
-            
-        if meteoro6y==600:
-            meteoro6y=0
-            meteoro6x=random.randrange(0,400)   
+        if choque5==False:
+            if meteoro5y==500:
+                meteoro5y=0
+                meteoro5x=random.randrange(0,400)   
+           
+        if choque6==False:   
+            if meteoro6y==850:
+                meteoro6y=0
+                meteoro6x=random.randrange(0,400)   
 
         #colision
         auxposx=x_var-50
         auxposy=y_var
         i=1
         col=False
-        print(meteoro1x,meteoro1y)
+
+            
                 # colision del meteoro
         for i in range (1,70):
                 auxposx=auxposx+1
                 if  meteoro1x==auxposx and meteoro1y==auxposy:
-        
+                    choque1=True
                     col=True
 
                 if  meteoro2x==auxposx and meteoro2y==auxposy:
+                    choque2=True
                     col=True
 
                 if  meteoro3x==auxposx and meteoro3y==auxposy:
+                    choque3=True
                     col=True
                     
                 if  meteoro4x==auxposx and meteoro4y==auxposy:
+                    choque4=True
                     col=True
                 if  meteoro5x==auxposx and meteoro5y==auxposy:
+                    choque5=True
                     col=True
                 if  meteoro6x==auxposx and meteoro6y==auxposy:
+                    choque6=True
                     col=True
+                
         if col==True:
-                    mensaje_colision()
-                    game_loop()
-
-
-
-
+            vida-=1
+            if vida>0:
+            #termina el juego
+                mensaje_colision()
+            else:
+                termina()
+                gameExit=True
+                
+                
+           
+        #vuelven a caer el meteorito
+            choque1=False
+            choque2=False
+            choque3=False
+            choque4=False
+            choque5=False
+            choque6=False
         ##
         # si el perosonaje principal esta en esa pocision , va a agarrar la tuerca.
         config.gameDisplay.fill(NEGRO)
         config.gameDisplay.blit(fondo, (0, 0))
+        nuevoMensaje.Print("vidae:" + str(vida))
         #---------------------------------------------------
         #dezplazamiento de la nave--
         nave(x_var, y_var)
@@ -208,12 +249,16 @@ def game_loop():
         meteorito(meteoro, meteoro4x, meteoro4y)
         meteorito(meteoro, meteoro5x, meteoro5y)
         meteorito(meteoro, meteoro6x, meteoro6y)
+        print (vida)
            
         ###Colisiones
         if x_var >= COL_RIGHT or x_var <= 0:
+            
+            vida-=1
             mensaje_borde()
             
         if y_var >= COL_BOTTOM or y_var <= 0:
+            vida-=1
             mensaje_borde()
         
         config.updateFPS() #Actualiza el Display
@@ -232,7 +277,7 @@ def game_main_menu():
 
 def main():
     #game_main_menu()
-    game_loop()
+    game_loop2()
     pygame.quit()
     quit()
 
