@@ -4,7 +4,6 @@ import time
 import random
 import sys
 
-
 from logging import addLevelName
 from test.pickletester import DATA0_DIS
 from pygame.locals import *
@@ -132,7 +131,6 @@ class Menu:
             opcion.imprimir(screen)
 
 def comenzar_nuevo_juego():
-    pygame.mixer.music.stop()
     pygame.display.update()
     screen = pygame.display.set_mode((500, 500))
     pygame.display.update()
@@ -150,6 +148,7 @@ def salir_del_programa():
 
 def los_creditos():
     gameExit = False
+    salir=False
     while not gameExit:
         for event in pygame.event.get():            
             if event.type == pygame.QUIT:
@@ -169,8 +168,8 @@ def los_creditos():
         creditos = Mensaje()
         creditos.Color = BLANCO
         creditos.Posicion = "middle"
-        creditos.Print("creadores\nHola") # hay que ver como poner los nombres "No se como se pone \n"
-
+        config.gameDisplay.blit(imagen9, (100,100))
+  
 
 
 if __name__ == '__main__':

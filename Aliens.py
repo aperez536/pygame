@@ -27,6 +27,7 @@ pygame.init()
 
 
 
+
 config = Config()
 config.gameDisplay = pygame.display.set_mode((DISPLAY_ANCHO, DISPLAY_ALTURA), pygame.DOUBLEBUF)
 
@@ -108,7 +109,9 @@ def game_loop():
     #posicion de la tuerca
     x1 = 350
     y1 = 250
-
+    x5=20
+    y5=200
+    
     #---------------
     vel = 10
     gameExit = False
@@ -121,21 +124,26 @@ def game_loop():
     contador = 0 # contador para el cambio visual de imagenes
     agarratuerca = False
     contartuerca = 2
+    agarratuerca1 = False
+    contartuerca1 = 2
 
-    #---pos del tornillo
+    #---pos de tornillos
     x2 = 300
     y2 = 300
-
+    x4=150
+    y4=150
     #-------
     agarratornillo = False
     contartornillo = 0
+    agarratornillo1 = False
+    contartornillo1 = 0
 
     #posicion nave
     x3 = 450
     y3 = 450
     #sonidos de personaje de movimiento y agarre
     sonidomover=pygame.mixer.Sound("Sonidos/mover.mp3")
-    pygame.mixer.music.load("Sonidos/win.mp3")
+
     
     #posiciones del tronco
     tron1x= random.randrange(0,400)
@@ -230,18 +238,19 @@ def game_loop():
                     col=True
         if col==True:
                     mensaje_colision()
-                    game_loop()
-
-
-
 
         ##
         # si el perosonaje principal esta en esa pocision , va a agarrar la tuerca.
-        if((x_var>=330 and x_var<=340)and (y_var >=220 and y_var<=250) ):
+        if((x_var>=320 and x_var<=350)and (y_var >=210 and y_var<=265) ):
             agarratuerca=True
             if (contartuerca==2 and agarratuerca== True):
                 Puntaje=agarraobjeto(agarratuerca,Puntaje)
                 contartuerca=1
+        if((x_var>=10 and x_var<=30)and (y_var >=170 and y_var<=210) ):
+            agarratuerca1=True
+            if (contartuerca1==2 and agarratuerca1== True):
+                Puntaje=agarraobjeto(agarratuerca1,Puntaje)
+                contartuerca1=1
         config.gameDisplay.fill(NEGRO)
         config.gameDisplay.blit(fondo, (0, 0))
         
@@ -259,31 +268,36 @@ def game_loop():
         tronco1(tronco,tron3x, tron3y)
             
      
-
-
-
-
-
         # si el perosonaje principal esta en esa pocision , va a agarrar la tuerca.
 
         #print (x_var,y_var,contartornillo,contartuerca)
-        if((x_var>=280 and x_var<=290)and (y_var >267 and y_var<=290) ):
+        if((x_var>=280 and x_var<=290)and (y_var >267 and y_var<=310) ):
             agarratornillo=True
             if agarratornillo==True and contartornillo==0:
                 Puntaje=agarraobjeto(agarratornillo,Puntaje)
                 contartornillo=1
-                
+        print (x_var,y_var)
+      
+               
         #----------------------------------------
-                    
+        if((x_var>=130 and x_var<=150)and (y_var >=120 and y_var<=160) ):
+            agarratornillo1=True
+            if agarratornillo1==True and contartornillo1==0:
+                Puntaje=agarraobjeto(agarratornillo1,Puntaje)
+                contartornillo1=1
+                           
 
     
-        
+        if agarratornillo1==False:
+            tornillo(x4, y4)
         #------------------------
         if agarratuerca==False:
             tuerca(x1,y1)
             
         if agarratornillo==False:
             tornillo(x2, y2)
+        if agarratuerca1==False:
+            tuerca(x5,y5)
         #-----------------------------------------------------
             
         ###Colisiones
@@ -294,11 +308,10 @@ def game_loop():
             mensaje_borde()
 
             
-        if contartornillo == contartuerca:
+        if contartornillo == contartuerca == contartornillo1 == contartuerca1:
             
             if ((x_var>=410 and x_var<=450) and (y_var>=400 and y_var<=450)):
-                sonidomover.stop()
-                pygame.mixer.music.play(-1,0.0)
+
                 gameExit=True
                 game_loop2()               
         

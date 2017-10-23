@@ -11,18 +11,6 @@ from Aliens import *
 pygame.init()
 
 
-def comenzar_juego1():
-    pygame.mixer.music.stop()
-    pygame.display.update()
-    screen = pygame.display.set_mode((500, 500))
-    pygame.display.update()
-    x=0
-    y=0
-    vel=10
-    gameExit=False
-    x_var=200
-    y_var=200
-    game_loop() # Funciona pero no es como se debe  
 
 
 config = Config()
@@ -47,8 +35,12 @@ def mensaje1(text):
 def mensaje_borde():
     mensaje1('Choque con el borde!')
 
-def termina():
+
+def termina(vida):
     mensaje1('el juego se acabo')
+    if vida == 0:
+        game_Exit=True;
+        return game_Exit
 
 def mensaje_colision():
     colision1('Choque!')
@@ -66,7 +58,7 @@ def meteorito(trnc,x,y):
 
 
 def game_loop2():
-    
+
     x = 0
     y = 0
 
@@ -222,8 +214,8 @@ def game_loop2():
             #termina el juego
                 mensaje_colision()
             else:
-                termina()
-                gameExit=True
+                #col = False        
+                gameExit=termina(vida)
                 
                 
            
@@ -249,17 +241,24 @@ def game_loop2():
         meteorito(meteoro, meteoro4x, meteoro4y)
         meteorito(meteoro, meteoro5x, meteoro5y)
         meteorito(meteoro, meteoro6x, meteoro6y)
-        print (vida)
+        print (x_var,y_var)
            
         ###Colisiones
-        if x_var >= COL_RIGHT or x_var <= 0:
-            
-            vida-=1
+        if x_var <= 0:
             mensaje_borde()
-            
-        if y_var >= COL_BOTTOM or y_var <= 0:
             vida-=1
+            x_var=10
+            if vida== 0:
+                gameExit=termina(vida)
+          
+            
+        if x_var >= COL_RIGHT:
             mensaje_borde()
+            vida-=1
+            x_var=400
+            if vida==0:
+                gameExit=termina(vida)
+
         
         config.updateFPS() #Actualiza el Display
 

@@ -118,7 +118,11 @@ MIERCOLES 18/10 ------------- 17:08hs
 agregue en la carpeta el codigo de nivel2 del juego, su contenido tiene la colision de la nave con el meteorito.
 by: Alan
 **************************************************
-Domingo 22/1-------------- 22:11hs
+Domingo 22/10-------------- 22:11hs
 arregle la caida de meteoritos.agregue vida de la nave y ademas agregue imagenes de tareas asignadas y resolvidas.
 by: Alan 
 ************************************
+Lunes 23/10 ---------------- 17:21js
+modificacion de codigo. tanto como el primer nivel como en el segundo. en el menu agregue los creditos del equipo de desarrollo del juego, pero sigue bugeado. arregle la colision de la nave en el nivel 2 cuando se chocaban con la pared.Y en el nivel 1 agregue mas objetos para que el personaje agarre.
+by ALan
+*****************************************************
