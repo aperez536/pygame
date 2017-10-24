@@ -51,7 +51,7 @@ def mensaje1(text):
     config.gameDisplay.blit(TextSurf, TextRect)
     pygame.display.update()
     time.sleep(1)
-    game_loop() #No tiene que volver a empezar
+    game_loop() 
 
 def mensaje2(text):
     largeText = pygame.font.Font('freesansbold.ttf', 20)
@@ -63,13 +63,13 @@ def mensaje2(text):
     game_loop()
 
 def mensaje_gano():
-    mensaje2('gano el juego')
+    mensaje2('Has ganado el juego!')
 
 def mensaje_borde():
     mensaje1('Choque con el borde!')
 
 def mensaje_colision():
-    colision1('Choque!')
+    colision1('Has sido golpeado!')
 
 def colision1(text):
     largeText = pygame.font.Font('freesansbold.ttf', 20)
@@ -80,7 +80,7 @@ def colision1(text):
     time.sleep(1)
     game_loop()
 def agarraobjeto(aagarro,totalitenagarrado):
-    Puntaje = 0 #Se podria poner dentro de la clase Alien.Puntaje (Multijugador?!)
+    Puntaje = 0
     if  aagarro==True:
         totalitenagarrado+=1
     return totalitenagarrado
@@ -94,7 +94,7 @@ def game_loop():
     x = 0
     y = 0
 
-    #Prueba de Mensajes Nuevos (Falta hacerles un timer para que desaparescan con el tiempo??)
+    # Mensajes Nuevos 
     nuevoMensaje = Mensaje()
     nuevoMensaje.Color = CELESTE
     nuevoMensaje.Posicion = "top-left"
@@ -104,8 +104,7 @@ def game_loop():
 
     #Creamos el Alien
     iAlien = Alien("Alien")
-    Puntaje = 0 #Se podria poner dentro de la clase Alien.Puntaje (Multijugador?!)
- 
+    Puntaje = 0  
     #posicion de la tuerca
     x1 = 350
     y1 = 250
@@ -240,7 +239,7 @@ def game_loop():
                     mensaje_colision()
 
         ##
-        # si el perosonaje principal esta en esa pocision , va a agarrar la tuerca.
+        # si el perosonaje principal esta en esa posicion , va a agarrar la tuerca.
         if((x_var>=320 and x_var<=350)and (y_var >=210 and y_var<=265) ):
             agarratuerca=True
             if (contartuerca==2 and agarratuerca== True):
@@ -268,7 +267,7 @@ def game_loop():
         tronco1(tronco,tron3x, tron3y)
             
      
-        # si el perosonaje principal esta en esa pocision , va a agarrar la tuerca.
+        # si el perosonaje principal esta en esa posicion , va a agarrar la tuerca.
 
         #print (x_var,y_var,contartornillo,contartuerca)
         if((x_var>=280 and x_var<=290)and (y_var >267 and y_var<=310) ):

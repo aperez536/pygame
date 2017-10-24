@@ -1,3 +1,4 @@
+
 import os  #ver si en todas las pc esta
 import pygame
 import time
@@ -51,7 +52,7 @@ class Opcion:
 class Cursor:
 
     def __init__(self, x, y, dy):
-        self.image = pygame.image.load('Imagenes\\menu\\cursor.png').convert_alpha()
+        self.image = pygame.image.load('Imagenes\\señala1.png').convert_alpha()
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.y_inicial = y
@@ -75,15 +76,15 @@ class Menu:
     def __init__(self, opciones):
         self.opciones = []
         fuente = pygame.font.Font('Font\\Oxin.ttf', 50)
-        x = 150 #Ubicacion palabras
-        y = 150 #same
+        x = 130 #Ubicacion palabras
+        y = 130 #same
         paridad = 1
 
-        self.cursor = Cursor(x - 95, y, 95) #CURSOR MOVIMIENTO
+        self.cursor = Cursor(x - 75, y, 75) #CURSOR MOVIMIENTO
 
         for titulo, funcion in opciones:
             self.opciones.append(Opcion(fuente, titulo, x, y, paridad, funcion))
-            y += 70 #DISTANCIA ENTRE PALABRAS
+            y += 80 #DISTANCIA ENTRE PALABRAS
             if paridad == 1:
                 paridad = -1
             else:
