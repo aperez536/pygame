@@ -130,3 +130,7 @@ Martes 24/10---------------- 18:09
 modifique el color de imagen tuerca y tornillo, ademas arregle algunos bug del nivel 2. y cambie el fondo del nivel 2. Ademas agregue una imagen que puede ser posible Cursor de Seleccion.
 by Alan.
 *****************************************************
+Martes 24/10-------------20:52hs
+Modificación de varios aspectos del juego. Imagenes, movimientos, casos menores.
+By: MICAELAº
+******************************************************

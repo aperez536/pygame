@@ -1,6 +1,6 @@
 import pygame
 
-GAME_NOMBRE = "Space Full of Aliens" #Buscar nombre copado?!
+GAME_NOMBRE = "Space Full of Aliens" 
 GAME_FPS = 30
 
 ########DISPLAY SETTINGS########
