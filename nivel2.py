@@ -209,16 +209,17 @@ def game_loop2():
                     col=True
                 
         if col==True:
-            vida-=1
-            if vida>0:
+            vida=vida-1
+            if vida>=1 and vida <=3:
             #termina el juego
                 mensaje_colision()
             else:
+                
                 #col = False        
                 gameExit=termina(vida)
                 
                 
-           
+        
         #vuelven a caer el meteorito
             choque1=False
             choque2=False
@@ -230,6 +231,7 @@ def game_loop2():
         # si el perosonaje principal esta en esa pocision , va a agarrar la tuerca.
         config.gameDisplay.fill(NEGRO)
         config.gameDisplay.blit(fondo, (0, 0))
+        # MUESTRA LA VIDA DEL PERSONAJE
         nuevoMensaje.Print("vidae:" + str(vida))
         #---------------------------------------------------
         #dezplazamiento de la nave--
@@ -241,21 +243,34 @@ def game_loop2():
         meteorito(meteoro, meteoro4x, meteoro4y)
         meteorito(meteoro, meteoro5x, meteoro5y)
         meteorito(meteoro, meteoro6x, meteoro6y)
-        print (x_var,y_var)
            
         ###Colisiones
         if x_var <= 0:
-            mensaje_borde()
             vida-=1
+            if vida>=1 and vida <=3:
+            #termina el juego
+                mensaje_borde()
+            else:
+                
+                #col = False        
+                gameExit=termina(vida)
+                
             x_var=10
             if vida== 0:
                 gameExit=termina(vida)
           
             
-        if x_var >= COL_RIGHT:
-            mensaje_borde()
+        if x_var >= COL_RIGHT+15:
             vida-=1
-            x_var=400
+            if vida>=1 and vida <=3:
+            #termina el juego
+                mensaje_borde()
+            else:
+                
+                #col = False        
+                gameExit=termina(vida)
+                
+            x_var=450
             if vida==0:
                 gameExit=termina(vida)
 

@@ -147,11 +147,11 @@ def game_loop():
     
     #posiciones del tronco
     tron1x= random.randrange(0,400)
-    tron1y=0
+    tron1y=-50
     tron2x=random.randrange(0,400)
     tron2y=0
     tron3x=random.randrange(0,400)
-    tron3y=0
+    tron3y=-100
     
     while not gameExit:
              #pygame.display.update()
@@ -252,7 +252,7 @@ def game_loop():
                 Puntaje=agarraobjeto(agarratuerca1,Puntaje)
                 contartuerca1=1
         config.gameDisplay.fill(NEGRO)
-        config.gameDisplay.blit(fondo, (0, 0))
+        config.gameDisplay.blit(fondo2, (0, 0))
         
         nuevoMensaje2.Print("Nombre:" + iAlien.name)
 
@@ -276,7 +276,7 @@ def game_loop():
             if agarratornillo==True and contartornillo==0:
                 Puntaje=agarraobjeto(agarratornillo,Puntaje)
                 contartornillo=1
-        print (x_var,y_var)
+        
       
                
         #----------------------------------------
@@ -313,7 +313,9 @@ def game_loop():
             if ((x_var>=410 and x_var<=450) and (y_var>=400 and y_var<=450)):
 
                 gameExit=True
-                game_loop2()               
+                game_loop2()
+                
+                                   
         
         config.updateFPS() #Actualiza el Display
 

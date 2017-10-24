@@ -122,7 +122,11 @@ Domingo 22/10-------------- 22:11hs
 arregle la caida de meteoritos.agregue vida de la nave y ademas agregue imagenes de tareas asignadas y resolvidas.
 by: Alan 
 ************************************
-Lunes 23/10 ---------------- 17:21js
+Lunes 23/10 ---------------- 17:21hs
 modificacion de codigo. tanto como el primer nivel como en el segundo. en el menu agregue los creditos del equipo de desarrollo del juego, pero sigue bugeado. arregle la colision de la nave en el nivel 2 cuando se chocaban con la pared.Y en el nivel 1 agregue mas objetos para que el personaje agarre.
 by ALan
+*****************************************************
+Martes 24/10---------------- 18:09
+modifique el color de imagen tuerca y tornillo, ademas arregle algunos bug del nivel 2. y cambie el fondo del nivel 2. Ademas agregue una imagen que puede ser posible Cursor de Seleccion.
+by Alan.
 *****************************************************

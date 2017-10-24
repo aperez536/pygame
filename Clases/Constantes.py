@@ -26,6 +26,8 @@ AMARILLO = (255, 255, 0)
 GRIS = (60, 60, 60)
 
 #######IMAGENES########
+fondo2 = pygame.image.load('Imagenes/fondo_posible.png')
+fondo2 = pygame.transform.scale(fondo2, (DISPLAY_ANCHO, DISPLAY_ALTURA))
 fondo = pygame.image.load('Imagenes/fondo.png')
 fondo = pygame.transform.scale(fondo, (DISPLAY_ANCHO, DISPLAY_ALTURA))
 
