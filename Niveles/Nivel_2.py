@@ -4,14 +4,9 @@ import random
 from Clases.Config import Config
 from Clases.Mensaje import Mensaje
 from Clases.Constantes import *
-from Aliens import *
-
-
+from Niveles.Nivel_1 import *
 
 pygame.init()
-
-
-
 
 config = Config()
 config.gameDisplay = pygame.display.set_mode((DISPLAY_ANCHO, DISPLAY_ALTURA), pygame.DOUBLEBUF)
@@ -57,14 +52,14 @@ def meteorito(trnc,x,y):
      config.gameDisplay.blit(trnc, (x,y))
 
 
-def game_loop2():
+def game_loop2(Puntaje):
 
     x = 0
     y = 0
 
     #Prueba de Mensajes Nuevos (Falta hacerles un timer para que desaparescan con el tiempo??)
     nuevoMensaje = Mensaje()
-    nuevoMensaje.Color = CELESTE
+    nuevoMensaje.Color = BLANCO
     nuevoMensaje.Posicion = "top-left"
     nuevoMensaje2 = Mensaje()
     nuevoMensaje2.Posicion = "bottom-left"
@@ -150,29 +145,35 @@ def game_loop2():
         #lluvia  de meteoros
         if choque1==False:
             if meteoro1y==500:
+                Puntaje = Puntaje + random.randrange(0,10)
                 meteoro1y=0
                 meteoro1x=random.randrange(0,400)#devuelve una posicion aleatoria en el rango asignado
         if choque2==False:
             if meteoro2y==500:
+                Puntaje = Puntaje + random.randrange(0,10)
                 meteoro2y=0
                 meteoro2x=random.randrange(0,400)
         if choque3==False:
             if meteoro3y==500:
+                Puntaje = Puntaje + random.randrange(0,10)
                 meteoro3y=0
                 meteoro3x=random.randrange(0,400)   
             
         if choque4==False:
             if meteoro4y==600:
+                Puntaje = Puntaje + random.randrange(0,10)
                 meteoro4y=0
                 meteoro4x=random.randrange(0,400)   
         
         if choque5==False:
             if meteoro5y==500:
+                Puntaje = Puntaje + random.randrange(0,10)
                 meteoro5y=0
                 meteoro5x=random.randrange(0,400)   
            
         if choque6==False:   
             if meteoro6y==850:
+                Puntaje = Puntaje + random.randrange(0,10)
                 meteoro6y=0
                 meteoro6x=random.randrange(0,400)   
 
@@ -232,7 +233,9 @@ def game_loop2():
         config.gameDisplay.fill(NEGRO)
         config.gameDisplay.blit(fondo, (0, 0))
         # MUESTRA LA VIDA DEL PERSONAJE
-        nuevoMensaje.Print("vidae:" + str(vida))
+        nuevoMensaje2.Print("Vidas:" + str(vida))
+        # MUESTRA EL PUNTAJE
+        nuevoMensaje.Print("Puntaje:" + str(Puntaje))
         #---------------------------------------------------
         #dezplazamiento de la nave--
         nave(x_var, y_var)

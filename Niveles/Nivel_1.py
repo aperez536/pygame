@@ -21,12 +21,10 @@ from Clases.Alien import Alien
 from Clases.Config import Config
 from Clases.Mensaje import Mensaje
 from Clases.Constantes import *
-from nivel2 import *
+from Niveles.Nivel_2 import *
+from random import randint
 
 pygame.init()
-
-
-
 
 config = Config()
 config.gameDisplay = pygame.display.set_mode((DISPLAY_ANCHO, DISPLAY_ALTURA), pygame.DOUBLEBUF)
@@ -79,10 +77,11 @@ def colision1(text):
     pygame.display.update()
     time.sleep(1)
     game_loop()
+
 def agarraobjeto(aagarro,totalitenagarrado):
     Puntaje = 0
     if  aagarro==True:
-        totalitenagarrado+=1
+        totalitenagarrado+=100
     return totalitenagarrado
 
 def tronco1(trnc,x,y):
@@ -96,7 +95,7 @@ def game_loop():
 
     # Mensajes Nuevos 
     nuevoMensaje = Mensaje()
-    nuevoMensaje.Color = CELESTE
+    nuevoMensaje.Color = BLANCO
     nuevoMensaje.Posicion = "top-left"
     nuevoMensaje2 = Mensaje()
     nuevoMensaje2.Posicion = "bottom-left"
@@ -144,13 +143,14 @@ def game_loop():
     sonidomover=pygame.mixer.Sound("Sonidos/mover.mp3")
 
     
-    #posiciones del tronco
-    tron1x= random.randrange(0,400)
-    tron1y=-50
-    tron2x=random.randrange(0,400)
+    #posiciones del tronco Iniciales
+
+    tron1x=random.randrange(randint(0, 60),randint(100, 460))
+    tron1y=0
+    tron2x=random.randrange(randint(0, 60),randint(100, 460))
     tron2y=0
-    tron3x=random.randrange(0,400)
-    tron3y=-100
+    tron3x=random.randrange(randint(0, 60),randint(100, 460))
+    tron3y=0
     
     while not gameExit:
              #pygame.display.update()
@@ -210,17 +210,20 @@ def game_loop():
                
         #lluvia 
         if tron1y==500:
+            Puntaje = Puntaje + random.randrange(0,10)
             tron1y=0
-            tron1x=random.randrange(0,400)#devuelve una posicion aleatoria en el rango asignado
+            tron1x=random.randrange(randint(0, 60),randint(100, 460)) #devuelve una posicion aleatoria en el rango asignado
         if tron2y==550:
+            Puntaje = Puntaje + random.randrange(0,10)
             tron2y=0
-            tron2x=random.randrange(0,400)
+            tron2x=random.randrange(randint(0, 60),randint(100, 460))
         if tron3y==600:
+            Puntaje = Puntaje + random.randrange(0,10)
             tron3y=0
-            tron3x=random.randrange(0,400)   
+            tron3x=random.randrange(randint(0, 60),randint(100, 460))
 
         #colision
-        auxposx=x_var-90
+        auxposx=x_var-66
         auxposy=y_var
         i=1
         col=False
@@ -238,7 +241,7 @@ def game_loop():
         if col==True:
                     mensaje_colision()
 
-        ##
+
         # si el perosonaje principal esta en esa posicion , va a agarrar la tuerca.
         if((x_var>=320 and x_var<=350)and (y_var >=210 and y_var<=265) ):
             agarratuerca=True
@@ -253,13 +256,11 @@ def game_loop():
         config.gameDisplay.fill(NEGRO)
         config.gameDisplay.blit(fondo2, (0, 0))
         
-        nuevoMensaje2.Print("Nombre:" + iAlien.name)
+        #nuevoMensaje2.Print("Nombre:" + iAlien.name)
 
         iAlien.move(x_var, y_var,contador)
-        if Puntaje > 2000:
-           nuevoMensaje.Borrar()
-        else:
-            nuevoMensaje.Print("Puntaje:" + str(Puntaje))
+
+        nuevoMensaje.Print("Puntaje:" + str(Puntaje))
 
         nave(x3, y3)
         tronco1(tronco,tron1x, tron1y)
@@ -312,7 +313,7 @@ def game_loop():
             if ((x_var>=410 and x_var<=450) and (y_var>=400 and y_var<=450)):
 
                 gameExit=True
-                game_loop2()
+                game_loop2(Puntaje)
                 
                                    
         

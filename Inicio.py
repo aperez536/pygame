@@ -1,5 +1,4 @@
-
-import os  #ver si en todas las pc esta
+import os
 import pygame
 import time
 import random
@@ -10,7 +9,7 @@ from test.pickletester import DATA0_DIS
 from pygame.locals import *
 from Clases.Mensaje import *
 from Clases.Constantes import *
-from Aliens import *
+from Niveles.Nivel_1 import *
 
 pygame.init()
 
@@ -52,7 +51,7 @@ class Opcion:
 class Cursor:
 
     def __init__(self, x, y, dy):
-        self.image = pygame.image.load('Imagenes\\señala1.png').convert_alpha()
+        self.image = pygame.image.load('Imagenes\\senala1.png').convert_alpha()
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.y_inicial = y
@@ -188,8 +187,6 @@ if __name__ == '__main__':
     fondo = pygame.transform.scale(fondo, (500, 500))
     
     menu = Menu(opciones)
-
-
 
 ######################
 

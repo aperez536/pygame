@@ -41,19 +41,20 @@ imagen4 = pygame.image.load("Imagenes/alien4.png")
 imagen4 = pygame.transform.scale(imagen4, (50, 50))
 imagen5 = pygame.image.load("Imagenes/alien5.png")
 imagen5 = pygame.transform.scale(imagen5, (50, 50))
-imagen6 = pygame.image.load("Imagenes/tuerca.png")
-imagen6 = pygame.transform.scale(imagen6, (30, 30))
-imagen7 = pygame.image.load("Imagenes/tornillo.png")
-imagen7 = pygame.transform.scale(imagen7, (35, 35))
+imagenes = [imagen1, imagen2, imagen3, imagen4, imagen5]
+
+imagen6 = pygame.image.load("Imagenes/cog.png")
+imagen6 = pygame.transform.scale(imagen6, (24, 24))
+imagen7 = pygame.image.load("Imagenes/wrench.png")
+imagen7 = pygame.transform.scale(imagen7, (24, 24))
 imagen8 = pygame.image.load("Imagenes/nave.png")
 imagen8 = pygame.transform.scale(imagen8, (35, 35))
-imagenes = [imagen1, imagen2, imagen3, imagen4, imagen5]
-meteoro = pygame.image.load("Imagenes/meteoro.png")
 imagen9= pygame.image.load("Imagenes/Creadores.png")
+meteoro = pygame.image.load("Imagenes/meteoro.png")
 imagen9 = pygame.transform.scale(imagen9, (250, 250))
 meteoro = pygame.transform.scale(meteoro, (60, 60))
 tronco = pygame.image.load("Imagenes/tronco2.png")
-
+tronco = pygame.transform.scale(tronco, (66, 66))
 
 
 ImagenActual = 0
