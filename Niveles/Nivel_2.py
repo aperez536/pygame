@@ -37,6 +37,11 @@ def termina(vida):
         game_Exit=True;
         return game_Exit
 
+def hasganado(algo):
+    mensaje1('gano el juego')
+    gameexit = True
+    return gameexit
+
 def mensaje_colision():
     colision1('Choque!')
 
@@ -56,7 +61,7 @@ def game_loop2(Puntaje):
 
     x = 0
     y = 0
-
+    Puntaje = 0
     #Prueba de Mensajes Nuevos (Falta hacerles un timer para que desaparescan con el tiempo??)
     nuevoMensaje = Mensaje()
     nuevoMensaje.Color = BLANCO
@@ -261,7 +266,8 @@ def game_loop2(Puntaje):
             x_var=10
             if vida== 0:
                 gameExit=termina(vida)
-          
+        if Puntaje >=  350 :
+            gameExit = hasganado(Puntaje)
             
         if x_var >= COL_RIGHT+15:
             vida-=1

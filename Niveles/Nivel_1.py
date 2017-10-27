@@ -114,7 +114,7 @@ def game_loop():
     vel = 10
     gameExit = False
 
-    #pos del personaje principal
+    #pos del personaje principa7l
     x_var = 200
     y_var = 350
 
@@ -248,11 +248,13 @@ def game_loop():
             if (contartuerca==2 and agarratuerca== True):
                 Puntaje=agarraobjeto(agarratuerca,Puntaje)
                 contartuerca=1
+                agarratuerca= False
         if((x_var>=10 and x_var<=30)and (y_var >=170 and y_var<=210) ):
             agarratuerca1=True
             if (contartuerca1==2 and agarratuerca1== True):
                 Puntaje=agarraobjeto(agarratuerca1,Puntaje)
                 contartuerca1=1
+                agarratuerca = False
         config.gameDisplay.fill(NEGRO)
         config.gameDisplay.blit(fondo2, (0, 0))
         
@@ -260,7 +262,7 @@ def game_loop():
 
         iAlien.move(x_var, y_var,contador)
 
-        nuevoMensaje.Print("Puntaje:" + str(Puntaje))
+        #nuevoMensaje.Print("Puntaje:" + str(Puntaje))
 
         nave(x3, y3)
         tronco1(tronco,tron1x, tron1y)
@@ -276,6 +278,7 @@ def game_loop():
             if agarratornillo==True and contartornillo==0:
                 Puntaje=agarraobjeto(agarratornillo,Puntaje)
                 contartornillo=1
+                agarratornillo = False
         
       
                
@@ -285,6 +288,7 @@ def game_loop():
             if agarratornillo1==True and contartornillo1==0:
                 Puntaje=agarraobjeto(agarratornillo1,Puntaje)
                 contartornillo1=1
+                agarratornillo1=False
                            
 
     
