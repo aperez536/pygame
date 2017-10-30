@@ -18,6 +18,7 @@ pygame.mixer.music.load("Sonidos\\bg.ogg")
 reloj= pygame.time.Clock()
 pygame.mixer.music.play(-1, 0.0)
 
+
 class Opcion:
 
     def __init__(self, fuente, titulo, x, y, paridad, funcion_asignada):
@@ -146,6 +147,24 @@ def salir_del_programa():
     pygame.quit()
     quit()
 
+def instructivo():
+    gameExit = False
+    salir=False
+    while not gameExit:
+        for event in pygame.event.get():            
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_ESCAPE:
+                   
+                    os.execv(sys.executable, ['python'] + sys.argv)
+                    
+        pygame.display.update()
+        creditos = Mensaje()
+        creditos.Color = BLANCO
+        config.gameDisplay.blit(inst, (10,10))
+
 def los_creditos():
     gameExit = False
     salir=False
@@ -167,8 +186,7 @@ def los_creditos():
         pygame.display.update()
         creditos = Mensaje()
         creditos.Color = BLANCO
-        creditos.Posicion = "middle"
-        config.gameDisplay.blit(imagen9, (100,100))
+        config.gameDisplay.blit(creadores, (10,10))
   
 
 
@@ -178,13 +196,18 @@ if __name__ == '__main__':
     opciones = [
         ("juego nuevo", comenzar_nuevo_juego),
         ("salir", salir_del_programa),
-        ("creditos", los_creditos)
+        ("creditos", los_creditos),
+        ("instrucciones", instructivo)
         ]
 
     pygame.font.init()
     screen = pygame.display.set_mode((500, 500))
     fondo = pygame.image.load("Imagenes\\menu\\fondo.png").convert()
     fondo = pygame.transform.scale(fondo, (500, 500))
+    inst = pygame.image.load('Imagenes\\instructivo.png')
+    inst = pygame.transform.scale(inst, (500, 500))
+    creadores = pygame.image.load('Imagenes\\Creadores.png')
+    creadores = pygame.transform.scale(creadores, (500, 500))
     
     menu = Menu(opciones)
 
