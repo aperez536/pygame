@@ -134,3 +134,7 @@ Martes 24/10-------------20:52hs
 Modificación de varios aspectos del juego. Imagenes, movimientos, casos menores.
 By: MICAELAº
 ******************************************************
+Martes 31/10-------------18:44hs
+arreglando el diagrama de clases
+By: Alan
+******************************************************
