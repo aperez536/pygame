@@ -134,7 +134,15 @@ Martes 24/10-------------20:52hs
 Modificación de varios aspectos del juego. Imagenes, movimientos, casos menores.
 By: MICAELAº
 ******************************************************
+Lunes 30/10
+Me puse a hacer el diagrama de clases que pidio el profesor. Falta terminar las relaciones.
+ºMICAELA
+*****************************************************
 Martes 31/10-------------18:44hs
 arreglando el diagrama de clases
 By: Alan
 ******************************************************
+Martes 31/10------- 22:21hs
+Termine las relaciones del diagrama, lo puse en el papper y este mismo lo pase a pdf. Listo para entregar nuevamente todo el trabajo.
+ºMICAELA
+*******************************************
